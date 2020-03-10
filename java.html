@@ -102,10 +102,49 @@
       }
       printFarmInventory(3, 21, 8)
 </script>
+<script id='minFunction'>
+   function min(num1, num2) {
+      if (num1 > num2)
+        return num2
+      else if (num1 == num2)
+        return 'Numbers are equal'
+      else
+        return num1
+    }
+    console.log(min(30, 100))
+</script>
+<script id="eveness">
+  function evenness(num) {
+      if (num >= 0)
+        if (num == 0)
+          return true;
+        else if (num == 1)
+          return false;
+        else
+          return evenness(num - 2)
+      else
+        if (num == -2)
+          return true
+        else if (num == -1)
+          return false;
+        else
+          return evenness(num + 2)
+    }
+    console.log(evenness(-1))
+</script>
+<script id="amountOf">
+  function amountOf(text, char) {
+    var amount = 0;
+    for (var index = 0; index < text.lenght; index++)
+      if (text.charAt(index) == char) {
+        amount += 1;
+      }
+    return amount;
+  }
+  var string = "This sTring conTain a lot of T"
+  console.log(amountOf(string, 'T'))
+</script>
 
-<script></script>
-<script></script>
-<script></script>
 <script></script>
 <script></script>
 <script></script>

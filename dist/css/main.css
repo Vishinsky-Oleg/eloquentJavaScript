@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: white;
+}
+
+.change-btn {
+  padding: 5px;
+  border-radius: 5px;
+  background: #01b401;
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+.container {
+  background: #5188ff;
+  padding: 50px;
+  margin-top: 50px;
+  border-radius: 20px;
+}
+
+#btn button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  background: radial-gradient(white, #5188ff);
+  outline: 0;
+}
+
+#btn button:focus {
+  outline: none;
+}
+/*# sourceMappingURL=main.css.map */

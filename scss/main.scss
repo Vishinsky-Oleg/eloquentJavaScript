@@ -1,0 +1,41 @@
+@import "config";
+
+body {
+    background: $mclr;
+}
+
+.change-btn {
+    padding: 5px;
+    border-radius: 5px;
+    background: rgb(1, 180, 1);
+    color: $mclr;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 20px;
+}
+
+.container {
+    background: $sclr;
+    padding: 50px;
+    margin-top: 50px;
+    border-radius: 20px;
+}
+
+#btn {
+    button {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        border-radius: 30px;
+        background: radial-gradient($mclr, $sclr);
+        outline: 0;
+        &:focus {
+            outline: none;
+        }
+    }
+}

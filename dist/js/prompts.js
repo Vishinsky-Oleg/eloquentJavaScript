@@ -70,3 +70,75 @@ Comment
 
 //  Comment
 
+// Function as value
+let valFunc = function () {
+    console.log("a");
+};
+
+// Declaration notation
+function square(x) {
+    return x * x;
+}
+
+// Arrow function
+const power = (base, exponent) => {
+    let result = 1;
+    for (let count = 0; count < exponent; count++) {
+        result *= base;
+    }
+    return result;
+};
+
+// Optional arguments
+function minus(a, b) {
+    //Second argument is redundant
+    if (b === undefined) {
+        return -a;
+    } else return a - b;
+}
+
+function powerWithDefaultValue(base, exponent = 2) {
+    //Exponent is default value if it's not given or undefined
+    let result = 1;
+    for (let count = 0; count < exponent; count++) {
+        result *= base;
+    }
+    return result;
+}
+
+// Closure
+function closure() {
+    function multiplier(factor) {
+        return (number) => number * factor;
+    }
+    let thrice = multiplier(3);
+    let twice = multiplier(2);
+}
+
+// Recursion Example #1
+function powerRecursion(base, exponent) {
+    if (exponent == 0) {
+        return 1;
+    } else {
+        return base * powerRecursion(base, exponent - 1);
+    }
+}
+
+// Recursion Example #1
+function findSolution(target) {
+    function find(current, history) {
+        if (current == target) {
+            return history;
+        } else if (current > target) {
+            return null;
+        } else {
+            return (
+                find(current + 5, `(${history} + 5)`) ||
+                find(current * 3, `(${history} * 3)`)
+            );
+        }
+    }
+    return find(1, "1");
+}
+
+console.log(findSolution(124));

@@ -10,7 +10,8 @@ body {
 }
 
 .change-btn {
-  padding: 5px;
+  padding: 8px;
+  border: none;
   border-radius: 5px;
   background: #01b401;
   color: white;
@@ -29,9 +30,6 @@ img {
 }
 
 #btn button {
-  position: fixed;
-  bottom: 50px;
-  right: 50px;
   width: 40px;
   height: 40px;
   font-size: 1.5rem;
@@ -42,5 +40,60 @@ img {
 
 #btn button:focus {
   outline: none;
+}
+
+#btn #info-btn {
+  position: fixed;
+  bottom: 50px;
+  left: 92vw;
+}
+
+#btn #css-btn {
+  position: fixed;
+  bottom: 100px;
+  left: 92vw;
+}
+
+#btn #css-btn button {
+  font-size: 1rem;
+}
+
+.object {
+  display: inline-block;
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  text-align: center;
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  transition: -webkit-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
+  transition: transform 2s ease-in-out, -webkit-transform 2s ease-in-out;
+}
+
+.object .outer {
+  border: 10px solid red;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  padding: 0;
+  -webkit-transform: rotate(-33deg);
+          transform: rotate(-33deg);
+}
+
+.object .outer:hover {
+  -webkit-transition: -webkit-transform 2s ease-in-out;
+  transition: -webkit-transform 2s ease-in-out;
+  transition: transform 2s ease-in-out;
+  transition: transform 2s ease-in-out, -webkit-transform 2s ease-in-out;
+  -webkit-transform: rotate(-113deg);
+          transform: rotate(-113deg);
+}
+
+.object p {
+  padding-top: 30px;
 }
 /*# sourceMappingURL=main.css.map */

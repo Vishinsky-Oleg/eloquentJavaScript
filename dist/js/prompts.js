@@ -124,7 +124,7 @@ function powerRecursion(base, exponent) {
     }
 }
 
-// Recursion Example #1
+// Recursion Example #2
 function findSolution(target) {
     function find(current, history) {
         if (current == target) {

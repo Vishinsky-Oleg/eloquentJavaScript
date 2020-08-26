@@ -18,6 +18,7 @@
     <script src="./dist/js/main.js"></script>
     <script src="./dist/js/exercises.js"></script>
     <script src="./dist/js/prompts.js"></script>
+    <script src="./dist/js/lycanLog.js"></script>
     <link rel="stylesheet" href="./dist/css/main.css">
 
     <title>Useful information</title>
@@ -26,8 +27,8 @@
 
 <body>
     <div id="btn">
-        <a href="./index.html" id="info-btn"><button  type="button">&#9978;</button></a>
-        <a href="./style.html" id="css-btn"><button  type="button">CSS</button></a>
+        <a href="./index.html" id="info-btn"><button type="button">&#9978;</button></a>
+        <a href="./style.html" id="css-btn"><button type="button">CSS</button></a>
     </div>
 
 
@@ -75,7 +76,22 @@
 
     </div>
     <div class="container">
-        
+        <h4>
+            <pre>
+                let object1 = {value: 10};
+                let object2 = object1;
+                let object3 = {value: 10};
+                console.log(object1 == object2);
+                // → true
+                console.log(object1 == object3);
+                // → false
+                object1.value = 15;
+                console.log(object2.value);
+                // → 15
+                console.log(object3.value);
+                // → 10
+            </pre>
+        </h4>
     </div>
     <div class="container">
         <h4></h4>

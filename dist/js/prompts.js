@@ -141,4 +141,67 @@ function findSolution(target) {
     return find(1, "1");
 }
 
-console.log(findSolution(124));
+// Creating object
+function object() {
+    let obj = {
+        //Creating object
+        data0: true,
+        events: ["one", "two", "three", "four"],
+    };
+    obj.data1 = false; //Assigning new property
+    delete obj.data1; //Deleting property
+    Object.keys(obj); //Returning an arrah with values from object
+    Object.assign(obj, another_obj); //Copies all prop. from 'another_obj' into 'obj'
+}
+
+// let obj = {a:1,b:2,c:3};
+// console.log(obj);
+// Object.assign(obj, {b:3, d:5});
+// console.log(obj);
+// console.log(Object.keys(obj));
+
+//Foreach analog
+function easyLoopingArray() {
+    for (let item of array) {
+        return item;
+    }
+}
+
+//remove index from array
+function remove(array, index) {
+    return array.slice(0, index).concat(array.slice(index + 1));
+}
+
+//Any number of arguments
+function max(...numbers) {
+    let result = -Infinity;
+    for (let number of numbers) {
+        if (number > result) {
+            result = number;
+        }
+    }
+    return result;
+}
+
+function threeDotsNotation() {
+    let numbers = [1, 2, 3];
+    console.log(max(...numbers)); //passing elements as separate arguments
+    //It is possible to include an array like that along with other arguments, as in max(9, ...numbers, 2).
+    let words = ["never", "fully"];
+    console.log(["will", ...words, "understand"]);
+    console.log(["will", words, "understand"]);
+}
+
+// List
+function list() {
+    let list = {
+        value: 1,
+        rest: {
+            value: 2,
+            rest: {
+                value: 3,
+                rest: null
+            }
+        }
+    };
+}

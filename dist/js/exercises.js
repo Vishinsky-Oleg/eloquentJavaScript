@@ -1,4 +1,4 @@
-// Chapter III
+// Chapter II
 // Exercise #1
 function loopingATriangle() {
     for (let x = 1, line = "#"; x < 8; x++, line += "#") {
@@ -32,7 +32,7 @@ function chessBoard(size) {
     }
 }
 
-// Chapter IV
+// Chapter III
 // Exercise 1
 function min(a, b) {
     return a < b ? a : b;
@@ -40,19 +40,11 @@ function min(a, b) {
 
 // Exercise 2
 function isEven(n) {
-    if (n >= 0) {
-        if (n == 0) {
-            return true;
-        } else if (n == 1) {
-            return false;
-        } else return isEven(n - 2);
-    } else {
-        if (n == 0) {
-            return true;
-        } else if (n == -1) {
-            return false;
-        } else return isEven(n + 2);
-    }
+    if (n == 0) {
+        return true;
+    } else if ((n == 1 && n >= 0) || (n == -1 && n < 0)) {
+        return false;
+    } else return n >= 0 ? isEvenn(n - 2) : isEvenn(n + 2);
 }
 
 // Exercise 3
@@ -63,4 +55,104 @@ function countBs(str) {
         }
     }
     return count;
+}
+
+// Chapter IV
+// Exercise 1
+function range(start, end, step) {
+    seq = [];
+    if (!step && end > start) {
+        for (let i = start; i <= end; i++) {
+            seq.push(i);
+        }
+    } else if (step < 0 && start > end) {
+        for (let i = start; i >= end; i += step) {
+            seq.push(i);
+        }
+    } else {
+        for (let i = start; i <= end; i += step) {
+            seq.push(i);
+        }
+    }
+    return seq;
+
+}
+
+function sum(array) {
+    let final = 0;
+    for (let number of array) {
+        final += number;
+    }
+    return final;
+}
+
+// console.log(sum(range(1, 10, 2)));
+// console.log(range(10, 4, -2));
+
+// Exercise 2
+function reverseArray(array) {
+    let reversed = [];
+    for (let i = 0; i < array.length; i++) {
+        reversed.unshift(array[i]);
+    }
+    return reversed;
+}
+function reverseArrayInPlace(array) {
+    for (let i = 0, locAr = []; i < Math.floor(array.length / 2); i++) {
+        locAr.push(array[i]);
+        array[i] = array[array.length - 1 - i];
+        array[array.length - 1 - i] = locAr[i];
+    }
+    return array;
+}
+
+// let arrayValue = [1, 2, 3, 4, 5, 6, 7, 8];
+// console.log(reverseArray(arrayValue));
+// console.log(reverseArrayInPlace(arrayValue));
+// console.log(Math.floor(0, 10))
+
+// Exercise 3
+function arrayToList(array) {
+    let list = null;
+    for (let i = array.length - 1; i >= 0; i--) {
+        list = { value: array[i], rest: list };
+    }
+    return list;
+}
+// console.log(arrayToList([10, 20]));
+
+function listToArray(list) {
+    let array = [];
+    for (let node = list; node; node = node.rest) {
+        array.push(node.value);
+    }
+    return array;
+}
+
+function prepend(value, list) {
+    return { value, rest: list };
+}
+
+function nth(list, n) {
+    if (!list) return undefined;
+    else if (n == 0) return list.value;
+    else return nth(list.rest, n - 1);
+}
+
+// Exercise 4
+function deepEqual(a, b) {
+    if (a === b) return true;
+
+    if (a == null || typeof a != "object" ||
+        b == null || typeof b != "object") return false;
+
+    let keysA = Object.keys(a), keysB = Object.keys(b);
+
+    if (keysA.length != keysB.length) return false;
+
+    for (let key of keysA) {
+        if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+    }
+
+    return true;
 }

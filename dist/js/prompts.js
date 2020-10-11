@@ -205,3 +205,118 @@ function list() {
         }
     };
 }
+
+//Functions with undetermined value
+function repeat(n, action) {
+    for (let i = 0; i < n; i++) {
+        action(i);
+    }
+}
+function action() {
+    let labels = [];
+    repeat(5, i => {
+        labels.push(`Unit ${i + 1}`);
+    });
+    console.log(labels);
+}
+// action();
+
+
+
+// Higher order functions
+function greaterThan(n) {
+    return m => m > n;
+}
+// let greaterThan10 = greaterThan(10);
+// console.log(greaterThan10(11));
+
+// Functions that changing functions
+function noisy(f) {
+    return (...args) => {
+        console.log("calling with", args);
+        let result = f(...args);
+        console.log("called with", args, ", returned", result);
+        return result;
+    };
+}
+// noisy(Math.min)(3,2,1);
+
+// Function that provide new types of control flow.
+function controlFlow(params) {
+    function unless(test, then) {
+        if (!test) then();
+    }
+
+    repeat(3, n => {
+        unless(n % 2 == 1, () => {
+            console.log(n, "is even");
+        });
+    });
+}
+
+
+// forEach method
+function foreach() {
+    ["a", "b"].forEach(l => console.log(l));
+}
+
+
+// Filtering arrays
+var SCRIPTS = [
+    {
+        name: "Adlam",
+        ranges: [[125184, 125259], [125264, 125274], [125278, 125280]],
+        direction: "rtl",
+        year: 1987,
+        living: true,
+        link: "https://en.wikipedia.org/wiki/Fula_alphabets#Adlam_alphabet"
+    },
+    {
+        name: "Caucasian Albanian",
+        ranges: [[66864, 66916], [66927, 66928]],
+        direction: "ltr",
+        year: 420,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Caucasian_Albanian_alphabet"
+    },
+    {
+        name: "Ahom",
+        ranges: [[71424, 71450], [71453, 71468], [71472, 71488]],
+        direction: "ltr",
+        year: 1250,
+        living: false,
+        link: "https://en.wikipedia.org/wiki/Ahom_alphabet"
+    }
+]
+
+function filter(array, test) {
+    let passed = [];
+    for (let element of array) {
+        if (test(element)) {
+            passed.push(element);
+        }
+    }
+    return passed;
+}
+
+//Mapping array
+function map(array, transform) {
+    let mapped = [];
+    for (let element of array) {
+        mapped.push(transform(element));
+    }
+    return mapped;
+}
+
+//Reducing
+function reduce(array, combine, start) {
+    let current = start;
+    for (let element of array) {
+        current = combine(current, element);
+    }
+    return current;
+}
+
+function characterCount(script) {
+    return script.ranges.reduce((count, [from, to]) => {return count + (to - from);}, 0);
+}
